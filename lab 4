@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+public class Book {
+    private String name;
+    private String author;
+    private double price;
+    private int pages;
+
+   
+    public Book(String name, String author, double price, int pages) {
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.pages = pages;
+    }
+
+   
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [Name: " + name + ", Author: " + author + ", Price: " + price + ", Pages: " + pages + "]";
+    }
+
+
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of books:");
+        int n = sc.nextInt();
+        sc.nextLine(); // Consume the newline character
+
+        Book[] books = new Book[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the book details:");
+            System.out.print("Enter the book's name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter the author's name: ");
+            String author = sc.nextLine();
+            System.out.print("Enter price: ");
+            double price = sc.nextDouble();
+            System.out.print("Enter pages: ");
+            int pages = sc.nextInt();
+            sc.nextLine(); // Consume the newline character
+
+            books[i] = new Book(name, author, price, pages);
+        }
+
+        System.out.println("Details of books:");
+        for (int i = 0; i < n; i++) {
+            System.out.println(books[i]);
+        }
+        sc.close();
+    }
+}
