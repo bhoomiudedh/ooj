@@ -1,0 +1,56 @@
+import java.util.*;
+abstract class Shape{
+  double x,y;
+  Shape(double x,double y){
+  this.x=x;
+  this.y=y;
+}
+  abstract void printArea();
+}
+class Rectangle extends Shape{
+  Rectangle(double l,double b){
+  super(l,b);
+}
+  void printArea(){
+  double a=x*y;
+  System.out.println("Area of rectangle is:"+ a+ " m^2");
+  }
+}
+class Triangle extends Shape{
+  Triangle(double b,double h){
+  super(b,h);
+}
+  void printArea(){
+  double at=0.5*x*y;
+  System.out.println("Area of triangle is:"+ at+ " m^2");
+  }
+}
+class Circle extends Shape{
+  Circle(double r,double e){
+  super(r,0);
+}
+  void printArea(){
+  double ac=3.14*x*x;
+  System.out.println("Area of circle is:"+ ac+ "  m^2");
+  System.out.println("Bhoomi Udedh:1BM23CS066");
+  }
+}
+public class Main{
+  public static void main(String[] Args){
+    Scanner sc=new Scanner(System.in);
+    System.out.println("enter sides of rectangle:");
+    int l=sc.nextInt();
+    int b=sc.nextInt();
+    Rectangle rect=new Rectangle(l,b);
+    rect.printArea();
+    System.out.println("enter sides of triangle:");
+    double B=sc.nextDouble();
+    double h=sc.nextDouble();
+    Triangle tr=new Triangle(B,h);
+    tr.printArea();
+    System.out.println("enter radius of circle:");
+    double r=sc.nextDouble();
+    Circle c=new Circle(r,0);
+    c.printArea();  
+}
+}
