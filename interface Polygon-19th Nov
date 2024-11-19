@@ -1,0 +1,76 @@
+import java.util.Scanner;
+ interface Polygon {
+        default double getPerimeter(double... sideLengths) {
+        double perimeter = 0;
+        for (double side : sideLengths) {
+            perimeter += side;
+        }
+        return perimeter;
+    }
+    double getArea();
+}
+
+ class Rectangle implements Polygon {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+    public double getArea() {
+        return length * width;
+    }
+
+    public double calculatePerimeter() {
+        return getPerimeter(length, width, length, width);
+    }
+}
+ class Triangle implements Polygon {
+    double base;
+     double height;
+     double side1, side2, side3;
+
+     public Triangle(double base, double height, double side1, double side2, double side3) {
+        this.base = base;
+        this.height = height;
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+    public double getArea() {
+        return 0.5 * base * height;
+    }
+
+    public double calculatePerimeter() {
+        return getPerimeter(side1, side2, side3);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the length of the rectangle:");
+        double length = scanner.nextDouble();
+        System.out.println("Enter the width of the rectangle:");
+        double width = scanner.nextDouble();
+
+        Rectangle rectangle = new Rectangle(length, width);
+        System.out.println("Rectangle Area: " + rectangle.getArea());
+        System.out.println("Rectangle Perimeter: " + rectangle.calculatePerimeter());
+
+       
+        System.out.println("\n Enter the base of the triangle:");
+        double base = scanner.nextDouble();
+        System.out.println("Enter the height of the triangle:");
+        double height = scanner.nextDouble();
+        System.out.println("Enter the three sides of the triangle:");
+        double side1 = scanner.nextDouble();
+        double side2 = scanner.nextDouble();
+        double side3 = scanner.nextDouble();
+
+        Triangle triangle = new Triangle(base, height, side1, side2, side3);
+        System.out.println("Triangle Area: " + triangle.getArea());
+        System.out.println("Triangle Perimeter: " + triangle.calculatePerimeter());
+    }
+}
