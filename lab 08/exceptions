@@ -14,7 +14,7 @@ class Father {
             throw new WrongAgeException("Father's age cannot be negative.");
         }
         this.fatherAge = age;
-        System.out.println("Father's age is set to: " + age);
+        
     }
 }
 
@@ -30,11 +30,13 @@ class Son extends Father {
             throw new WrongAgeException("Son's age cannot be greater than or equal to Father's age.");
         }
         this.sonAge = sonAge;
-        System.out.println("Son's age is set to: " + sonAge);
+
+System.out.println("Father's age is set to: " + fatherAge);
+System.out.println("Son's age is set to: " + sonAge);
     }
 }
 
-public class InheritanceExceptionDemo {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -45,8 +47,8 @@ public class InheritanceExceptionDemo {
             System.out.print("Enter Son's age: ");
             int sonAge = scanner.nextInt();
 
-            Father father = new Father(fatherAge); // Validates father's age
-            Son son = new Son(fatherAge, sonAge); // Validates son's age
+            Father father = new Father(fatherAge); 
+            Son son = new Son(fatherAge, sonAge); 
 
         } catch (WrongAgeException e) {
             System.out.println("Exception caught: " + e.getMessage());
@@ -55,4 +57,3 @@ public class InheritanceExceptionDemo {
         } 
       }
     }
-
