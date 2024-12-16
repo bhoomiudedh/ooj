@@ -1,0 +1,23 @@
+package com.example.me;
+
+public class Myself {
+    public void bhoomi() {
+        System.out.println("I am Bhoomi");
+        System.out.println("My age is 19.");
+    }
+}
+
+//separate folder code
+package com.example.family;
+
+import com.example.me.Myself;
+
+public class Family {
+    public static void main(String[] args) {
+        Myself me = new Myself(); 
+        Family f = new Family();  
+        
+        System.out.println("My family has 2 members.");
+        me.bhoomi(); 
+    }
+}
