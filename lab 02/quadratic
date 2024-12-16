@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Quadratic
+{
+    public static void main(String[] args) {
+    int a,b,c;
+    double det,root,root1,root2;    
+Scanner myobj=new Scanner (System.in);
+        
+        System.out.print("Enter value of a,b,c: ");
+        a = myobj.nextInt();
+        b = myobj.nextInt();
+        c = myobj.nextInt();
+        
+      det = b * b - 4.0* a * c;
+        if (det > 0) 
+        {
+            root1 = (-b + Math.sqrt(det)) / (2 * a);
+            root2 = (-b - Math.sqrt(det)) / (2 * a);
+            System.out.println("the equation has two real roots: " + root1 + " and " + root2);
+        } 
+        else if (det == 0) 
+        {
+            root = -b / (2.0 * a);
+            System.out.println("the equation has one real root: " + root);
+        } 
+        else 
+        {
+            root1=-b/(2.0*a);
+            root2=Math.sqrt(-det)/(2.0*a);
+            System.out.println("the equation has complex roots:"+root1+"and"+root2);
+        }
+    }
+}
